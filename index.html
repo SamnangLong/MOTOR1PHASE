@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Motor 1Phase</title>
+    <link rel="icon" href="IMPROTEK.jpg">
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/button.css"> -->
     <script src="js/script.js"></script>
@@ -159,6 +160,7 @@
             document.getElementById('year').value = year;
         });
     </script>
+    
     <!-- TIME OF TIMEON -->
     <script>
         // JavaScript to manipulate the time input format
@@ -173,6 +175,25 @@
             document.getElementById('minutes').value = minutes;
         });
     </script>
+
+    <!-- FUNCTION FULL SCREEN -->
+    <script>
+        function toggleFullScreen() {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+          } 
+        //   ----FOR EXITFULLSCREEN----
+          // else {
+          //   if (document.exitFullscreen) {
+          //     document.exitFullscreen();
+          //   }
+          // }
+        }
+        document.addEventListener('click', function() {
+          toggleFullScreen();
+        });
+      </script>
+
 
 </body>
 </html>
