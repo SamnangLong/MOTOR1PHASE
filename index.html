@@ -160,7 +160,7 @@
             document.getElementById('year').value = year;
         });
     </script>
-    
+
     <!-- TIME OF TIMEON -->
     <script>
         // JavaScript to manipulate the time input format
@@ -179,16 +179,31 @@
     <!-- FUNCTION FULL SCREEN -->
     <script>
         function toggleFullScreen() {
-          if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-          } 
-        //   ----FOR EXITFULLSCREEN----
-          // else {
-          //   if (document.exitFullscreen) {
-          //     document.exitFullscreen();
-          //   }
-          // }
-        }
+    const elem = document.documentElement;
+
+    if (!document.fullscreenElement && !document.mozFullScreenElement &&
+        !document.webkitFullscreenElement && !document.msFullscreenElement) {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
+  }
         document.addEventListener('click', function() {
           toggleFullScreen();
         });
